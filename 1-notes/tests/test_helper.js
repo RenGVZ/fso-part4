@@ -11,7 +11,7 @@ const initialNotes = [
   },
 ]
 
-const nonExistingID = async () => {
+const nonExistingId = async () => {
   const note = new Note({ content: "willremovethissoon" })
   await note.save()
   await note.deleteOne()
@@ -26,6 +26,6 @@ const notesInDb = async () => {
 
 module.exports = {
   initialNotes,
-  nonExistingID,
+  nonExistingId,
   notesInDb,
 }
