@@ -23,10 +23,11 @@ mongoose.connect(config.MONGO_URL).then(() => {
 app.use(cors())
 app.use(express.json())
 app.use(middleware.requestLogger)
+app.use(middleware.tokenExtractor)
 
+app.use('/api/login', loginRoutes)
 app.use('/api/blogs', blogRoutes)
 app.use('/api/users', userRoutes)
-app.use('/api/login', loginRoutes)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
